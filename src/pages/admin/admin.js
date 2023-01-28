@@ -2,8 +2,9 @@
   import Header from '../Home/components/Navbar';
   import { useState,useEffect,useRef } from 'react';
   import { Logo,CoinCardCon,CoinCard,Fancy,Btn } from '../User/dashboard';
-  import eth from '../User/eth.png'
-  import btc from '../User/btc.png'
+  import eth from '../User/eth.png';
+  import btc from '../User/btc.png';
+  import {useNavigate} from 'ract-router-dom'
   // import { AppCon } from '../../App';
   // import  {selectPattern,selectTheme} from '../../redux/slices/themes'
   import Chart from './components/Chart/Chart';
@@ -148,6 +149,7 @@ const Icon=icon
 }
 
   const Admin=()=>{
+    const navigate= useNavigate()
     const ethRef=useRef()
     const btcRef=useRef()
      const [users,setUsers]=useState();
@@ -182,7 +184,8 @@ const Icon=icon
           headers:{"Content-type":"application/json"},
           body:JSON.stringify({id,amount})
         }).then(res=>res.json).then(data=>data)
-        window.location.reload()
+        navigate('/')
+      
       }
     }
     const deleteUser=async(id,name)=>{
@@ -191,7 +194,8 @@ const Icon=icon
           await fetch(`${apiEntry}/user/delete/${id}`,{
             method:"DELETE",
           }).then(res=>res.json()).then(data=>data);
-           window.location.reload()
+        navigate('/')
+           
       }
     }
     const update=async(type,value)=>{
@@ -207,7 +211,8 @@ const Icon=icon
     headers:{"Content-Type":"application/json"},
     body:JSON.stringify(obj)
    }).then(res=>res.json()).then(data=>console.log(data))
-   window.location.reload()
+   navigate('/')
+   
     }
 
 
