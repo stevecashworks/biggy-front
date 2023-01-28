@@ -4,7 +4,7 @@
   import { Logo,CoinCardCon,CoinCard,Fancy,Btn } from '../User/dashboard';
   import eth from '../User/eth.png';
   import btc from '../User/btc.png';
-  import {useNavigate} from 'ract-router-dom'
+  import {useNavigate} from 'react-router-dom'
   // import { AppCon } from '../../App';
   // import  {selectPattern,selectTheme} from '../../redux/slices/themes'
   import Chart from './components/Chart/Chart';
