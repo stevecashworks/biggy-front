@@ -298,7 +298,7 @@ const Icon=icon
 
 
 
-        <Footer hasNav={false}/>
+        // <Footer hasNav={false}/>
       </Mid>
     </Container>
     </AppCon>
