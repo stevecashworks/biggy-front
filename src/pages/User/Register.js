@@ -3,6 +3,8 @@ import {Link, useNavigate} from 'react-router-dom'
 import styled from 'styled-components'
 import NavBar from '../Home/components/Navbar'
 import { apiEntry } from '../../App'
+import { fireBaseApp } from '../../fire'
+import {getAuth,sendSignInLinkToEmail} from 'firebase/auth'
 const Container=styled.div`
 display:grid;
 place-items:center;
@@ -51,6 +53,7 @@ font-size:20px;
 `
 
 const  Register=()=>{
+   const auth=getAuth(fireBaseApp)
     const navigate=useNavigate()
   
    const register=async(details)=>{

@@ -12,6 +12,8 @@ import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 import eth from './eth.png'  
 import btc from './btc.png'  
 import Widget from '../admin/components/Widgets/Widget';
+import Logout from './logout'
+import Footer from '../Home/components/Footer/footer';
 // import Investments from '../Home/components/Investments/investments';
  const  DashCon=styled.div`
 display:flex;
@@ -171,6 +173,8 @@ const Dash=()=>{
 
             welcome {name}
         </Greeting>
+        <Logout/>
+
         </Left>
         <Right>
             <WidgetCon>
@@ -179,14 +183,7 @@ const Dash=()=>{
 
             </WidgetCon>
             {/* <Investments bg={"none"}/> */}
-                <Invest>
-                    <Large>Invest now</Large>
-                    <Fancy type='number' placeholder='How much do you intend to invest?'></Fancy>
-                        <p style={{fontSize:"18px", margin:"10px auto"}}>Screenshot image as proof</p>
-                        <input type='file'/>
-                        <Btn onClick={()=>alert('we have recieved your request, and will get back to you shortly')}>Submit</Btn>
-               
-                </Invest>
+                
             <CoinCardCon>
                 <CoinCard>
                     <Logo src={btc}/>
@@ -197,8 +194,18 @@ const Dash=()=>{
                  <Address>{ethAddress}</Address>
                 </CoinCard>
             </CoinCardCon>
+            <Invest>
+                    <Large>Invest now</Large>
+                    <Fancy type='number' placeholder='How much do you intend to invest?'></Fancy>
+                        <p style={{fontSize:"18px", margin:"10px auto"}}>Screenshot image as proof</p>
+                        <input type='file'/>
+                        <Btn onClick={()=>alert('we have recieved your request, and will get back to you shortly')}>Submit</Btn>
+               
+                </Invest>
+
         </Right>
     </DashCon>
+    <Footer hasNav={false}/>
 </Con>
 )
 }

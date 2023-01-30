@@ -2,7 +2,7 @@
  import background from './images/background.jpg'
 import testimonyData from './testimonyData';
 import TestimonyCard from './Card.js'
-import vid from './video testimony/8441.mp4'
+import vid from './video testimony/vid.mp4'
  const Container= styled.div`
 width:100%;
 font-weight:500;
@@ -15,7 +15,7 @@ position:relative;
   font-weight:500;
   text-align:center;
   font-size:45px;
-  margin:40 auto;
+  margin:20px auto;
   display:block;
   text-transform:uppercase;
   @media (max-width:600px){
@@ -40,7 +40,7 @@ justify-content:space-between;
  `
  const Video=styled.video`
  height:300px;
- margin:20px auto;
+ margin:40px auto;
  display:block;
  background-color:white;
  @media (max-width:600px){
@@ -50,12 +50,12 @@ justify-content:space-between;
  const Testimonies=()=>{
  return (
     <Container>
-        <Header>Testimonies</Header>
+        {/* <Header>Testimonies</Header>
          <Sub>Happy investors <span style={{color:"orange"}}>sharing</span> their testimonies</Sub>
     <TestimonyCon>
         {testimonyData.map(item=><TestimonyCard img={item.img}name={item.name} text={item.text}/>)}
-    </TestimonyCon>
-    <Header>Testimonies(videos)</Header>
+    </TestimonyCon> */}
+    <Header>Learn more about Bitcoin investment</Header>
     <Video src={vid} height='300' width={'600'} controls/>
     
     </Container>

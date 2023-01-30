@@ -33,7 +33,9 @@
   `
   const ChartCon=styled.div`
   width: 600px;
-  height:600px;
+  height:400px;
+  overflow:hidden;
+  position:relative;
   `
   const Btn=styled.button`
   border-radius:20px;
@@ -63,7 +65,7 @@ We provide investment vehicles of all sizes to investors interested in being par
                 </TextCon>
 
             <ChartCon>
-            <iframe title="chart" style={{aspectRatio: "1200 / 630", width:"100%",height:"100%"}} src="https://www.coindesk.com/embedded-chart/kDd7QLFRHTgrr" width="100%" frameborder="0"></iframe>
+            <iframe title="chart" style={{width:"100%",height:"100%"}} src="https://www.coindesk.com/embedded-chart/kDd7QLFRHTgrr" width="100%" frameborder="0"></iframe>
             </ChartCon>
             </CenterCon>
 

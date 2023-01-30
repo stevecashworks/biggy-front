@@ -1,15 +1,17 @@
   import styled from 'styled-components';
   import Header from '../Home/components/Navbar';
-  import { useState,useEffect,useRef } from 'react';
-  import { Logo,CoinCardCon,CoinCard,Fancy,Btn } from '../User/dashboard';
+  import { useState,useEffect,useRef ,useContext} from 'react';
+  import { AppContext } from '../../App';
+  import { Logo,CoinCardCon,CoinCard,Fancy } from '../User/dashboard';
   import eth from '../User/eth.png';
   import btc from '../User/btc.png';
   import {useNavigate} from 'react-router-dom'
+  import Logout from '../User/logout';
   // import { AppCon } from '../../App';
   // import  {selectPattern,selectTheme} from '../../redux/slices/themes'
   import Chart from './components/Chart/Chart';
   import Widget from './components/Widgets/Widget';
-  import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
+  // import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
    import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
    import RequestQuoteIcon from '@mui/icons-material/RequestPage';
   import CategoryIcon from '@mui/icons-material/Category';
@@ -21,6 +23,7 @@
 
   import 'react-circular-progressbar/dist/styles.css'  
   import { apiEntry } from '../../App';
+import Footer from '../Home/components/Footer/footer';
   const Mid=styled.div`
 height:100vh;
 display:flex;
@@ -60,6 +63,7 @@ const CategoryHeader=styled.div``
 const AppCon=styled .div`
  width:100vw;
  box-sizing:border-box;
+ position:relative;
 `
 const WidgetCon=styled.div`
 width:100%;
@@ -68,7 +72,10 @@ margin:40px auto;
 display:flex;
 justify-content:space-around;
 @media (max-width:480px){
- flex-direction:column; 
+ flex-direction:column;
+ position:relative;
+ margin-top:140px; 
+ margin-bottom:100px; 
 }
 `
 const Links=styled.div`
@@ -129,7 +136,7 @@ const Div=styled.div`
 }
 `
 const But=styled.button`
-background-color:${props=>props.col=='yellow'?'rgb(0,255,0,0.2)':'rgb(255,0,0,0.1)'};
+background-color:${props=>props.col==='yellow'?'rgb(0,255,0,0.2)':'rgb(255,0,0,0.1)'};
 padding:10px 5px;
 border:none;
 cursor:pointer;
@@ -150,9 +157,10 @@ const Icon=icon
 
   const Admin=()=>{
     const navigate= useNavigate()
+    const {noOfVisits}=useContext(AppContext)
     const ethRef=useRef()
     const btcRef=useRef()
-     const [users,setUsers]=useState();
+     const [users,setUsers]=useState([]);
      console.log(users)
      useEffect(()=>{
         const fecthUsers=async()=>{
@@ -161,11 +169,12 @@ const Icon=icon
             setUsers(allUsers.result)
            }
        }
+      
        fecthUsers()
      },[])
     const widgetData=[
-    {title:"Users",icon:PersonOutlineIcon,perc:30,no:0,id:useId()},
-    {title:"Visits",icon:CategoryIcon,perc:80,no:0 ,id:useId()},
+    {title:"Users",icon:PersonOutlineIcon,perc:30,no:users.length,id:useId()},
+    {title:"Visits",icon:CategoryIcon,perc:80,no:noOfVisits ,id:useId()},
     {title:"Investments",icon:RequestQuoteIcon,perc:50,no:0,id:useId()}
     ]
     const  linkData=[
@@ -230,6 +239,7 @@ const Icon=icon
         <Links>
         {linkData.map(item=><LinkItem key={item.id} icon={item.icon} text={item.text} col={item.col}/>)}
         </Links>
+      <Logout/>
 
         </Left>
         <Right>
@@ -260,14 +270,12 @@ const Icon=icon
 
         { users&&<Table border={1}>
           <Row>
-            <Th>Id</Th>
             <Th>Name</Th>
             <Th>Email</Th>
             <Th>Balance</Th>
             <Th>Actions</Th>
           </Row>
           {users.map(user=><Row>
-            <Td>{user._id}</Td>
             <Td>{user.name}</Td>
             <Td>{user.email}</Td>
             <Td>${user.balance}</Td>
@@ -290,9 +298,11 @@ const Icon=icon
 
 
 
+        <Footer hasNav={false}/>
       </Mid>
     </Container>
     </AppCon>
+
   
  )
    }

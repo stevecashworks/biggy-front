@@ -54,10 +54,10 @@ const NavBar=()=>{
             <LogoCon>
 
             <Logo src={logo}/>
-            <LinkCon>
+            {/* <LinkCon>
             <Link to='#Contact' style={linkStyle}>Contact us</Link>
             <a href='#About' style={linkStyle}>About us</a>
-            </LinkCon>
+            </LinkCon> */}
             </LogoCon>
              <Contact>
              <ContactLink >

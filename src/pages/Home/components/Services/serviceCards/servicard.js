@@ -5,11 +5,13 @@ height:450px;
 box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 display:flex;
 flex-direction:column;
+border-radius:30px;
 gap:20px;
 justify-content:center;
 @media (max-width:600px){
  width:300px;
- height:auto;   
+ height:auto;
+ border-radius:0;   
 }
 `
 const Img=styled.img`

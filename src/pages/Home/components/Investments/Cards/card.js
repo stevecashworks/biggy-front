@@ -95,7 +95,7 @@ text-align:center;
 
 `
 const Card=({type,min,max,no})=>{
-  const newMax=(max===100000)?max:max+1;
+  const newMax=(max===50000)?max:max+1;
     const diff=(newMax)-min;
     const [amount,setAmount]=useState(50)
     const investment=(min+((amount/100)*diff))
@@ -108,7 +108,7 @@ const Card=({type,min,max,no})=>{
             </Top>
            
             
-                <Detail><i> <Orange style={{textTransform:"italicize"}}>${no}</Orange > roi</i></Detail>
+                <Detail><i> <Orange style={{textTransform:"italicize",marginRight:"20px"}}>{no}%</Orange > roi</i></Detail>
                 <Line/>
                 <MinMax>
                     <Min>
@@ -127,7 +127,7 @@ const Card=({type,min,max,no})=>{
                    
                     <Min>
                         <Text>Total Return</Text>
-                        <Orange>${(no/100)*investment*no}</Orange>
+                        <Orange>${Math.floor((no/100)*investment*no)}</Orange>
                     </Min>
                 </MinMax>
                 <Link to ="/user/register">

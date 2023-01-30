@@ -5,6 +5,8 @@ import Investments from "./Investments/investments";
 import Services from "./Services/services";
 import About from "./About/About";
 import Testimonies from "./testimonies/testimonies";
+import Achievements from "./Achievments/achievements";
+import Footer from "./Footer/footer";
 const Homepage=styled.div`
 position:absolute;
 background-color:white;
@@ -21,7 +23,9 @@ const Loaded=({hasLoaded})=>{
         <Investments/>
         <Services />
         <About />
-        {/* <Testimonies /> */}
+        <Testimonies />
+        <Achievements/>
+        <Footer hasNav={true}/>
  </Homepage>
   )
 }

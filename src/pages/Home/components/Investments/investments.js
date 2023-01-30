@@ -42,15 +42,15 @@ z-index:1;
 
 `
 const cardsData=[
-    { id:"card1",type:"starter",no:5,min:500, max:4999},
-    { id:"card2",type:"silver",no:10,min:5000, max:9999},
-    { id:"card3",type:"gold",no:15,min:10000, max:49999},
-    { id:"card3",type:"platinum",no:20,min:50000, max:100000},
+    { id:"card1",type:"starter",no:7.5,min:500, max:4999},
+    { id:"card2",type:"silver",no:13.5,min:5000, max:9999},
+    { id:"card3",type:"gold",no:20.5,min:10000, max:50000},
+    // { id:"card3",type:"platinum",no:20,min:50000, max:100000},
 ]
 const Investments=({bg})=>{
     console.log(cardsData)
 return (
-    <Container>
+    <Container id="Plans">
         <Background src={investBack} bg={bg} />
             {cardsData.map(data=><Card type={data.type} key={data.id} max={data.max} no={data.no} min={data.min} />)}
         <Overlay/>
